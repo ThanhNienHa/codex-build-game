@@ -78,11 +78,31 @@ def validate_evals() -> None:
             fail(f"eval scenario {case['id']} needs positive and negative criteria")
 
 
+def validate_case_studies() -> None:
+    case_dir = ROOT / "docs" / "case-studies"
+    required_sections = [
+        "## Context",
+        "## Skill behavior observed",
+        "## Fresh verification evidence",
+        "## Verdict",
+        "## Privacy",
+    ]
+    cases = [path for path in case_dir.glob("*.md") if path.name not in {"README.md", "template.md"}]
+    for path in cases:
+        text = path.read_text(encoding="utf-8")
+        for section in required_sections:
+            if section not in text:
+                fail(f"case study {path.name} missing section: {section}")
+        if not any(verdict in text for verdict in ("**PASS**", "**CONCERNS**", "**FAIL**")):
+            fail(f"case study {path.name} needs an explicit verdict")
+
+
 def main() -> None:
     validate_plugin()
     validate_skill()
     validate_repository_text()
     validate_evals()
+    validate_case_studies()
     print("Repository validation passed.")
 
 

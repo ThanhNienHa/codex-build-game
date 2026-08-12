@@ -1,6 +1,6 @@
 {
   "name": "codex-build-game",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A lightweight studio workflow for planning, building, playtesting, and shipping games with Codex.",
   "author": {
     "name": "Thanh Nien Ha",
