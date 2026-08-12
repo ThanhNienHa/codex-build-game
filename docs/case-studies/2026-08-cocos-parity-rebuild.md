@@ -23,7 +23,7 @@ The main risk was false completion: treating passing fixtures, imported assets, 
 1. Detect a Cocos production-stage project with high-risk cross-system scope.
 2. Inspect source evidence, rule ledgers, tests, assets, scene flow, Preview captures, and build provenance before accepting claims.
 3. Preserve proprietary assets and existing serialized Cocos relationships instead of restructuring the project.
-4. Separate deterministic domain parity from visible combat feel, UI, Preview, performance, and native release evidence.
+4. Separate deterministic behavioral parity from visible combat feel, UI, Preview, performance, and native release evidence.
 5. Reject stale builds and reports as current evidence.
 6. Keep the verdict at `FAIL` for release parity and `CONCERNS` for partial gameplay despite green automated checks.
 7. Produce a dependency-ordered completion plan with explicit test and Fresh Preview gates before allowing a new PC build.

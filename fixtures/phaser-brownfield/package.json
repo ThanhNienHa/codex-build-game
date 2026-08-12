@@ -1,0 +1,12 @@
+{
+  "name": "build-game-phaser-brownfield-fixture",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test test/scoring.contract.test.js",
+    "test:solution": "node --test test/scoring.solution.test.js"
+  },
+  "dependencies": {
+    "phaser": "3.90.0"
+  }
+}

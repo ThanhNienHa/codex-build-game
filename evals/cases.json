@@ -1,32 +1,79 @@
 [
   {
     "id": "small-bug-solo",
-    "prompt": "Fix a small score rounding bug in an existing Phaser game.",
-    "expect": ["solo", "test", "playable"],
-    "forbid": ["studio-full", "large backlog"]
-  },
-  {
-    "id": "normal-feature-lean",
-    "prompt": "Add a data-driven three-hit combo with feedback and tests.",
-    "expect": ["lean", "acceptance criteria", "deterministic"],
-    "forbid": ["release gate", "large studio"]
+    "prompt": "Fix a small score rounding bug in an existing Phaser game and keep the response concise.",
+    "required": [
+      {"name": "proportional solo process", "anyOf": ["\\bsolo\\b"]},
+      {"name": "focused automated check", "anyOf": ["test", "check"]},
+      {"name": "playable verification", "anyOf": ["playable", "browser smoke", "preview"]}
+    ],
+    "forbidden": [
+      {"name": "unnecessary studio process", "patterns": ["use studio-full", "create (a )?(full )?gdd", "build a large backlog"]}
+    ]
   },
   {
     "id": "cocos-vertical-slice",
-    "prompt": "Build the smallest Cocos pet-feeding vertical slice using existing assets.",
-    "expect": ["Cocos MCP", "asset", "Preview", "stop"],
-    "forbid": ["assume assets exist", "kill all"]
-  },
-  {
-    "id": "release-studio-full",
-    "prompt": "Review a cross-system release candidate with studio-full.",
-    "expect": ["three", "parallel", "PASS", "CONCERNS", "FAIL"],
-    "forbid": ["49", "file existence alone"]
+    "prompt": "Build the smallest Cocos pet-feeding vertical slice using whatever suitable assets already exist.",
+    "required": [
+      {"name": "engine metadata inspection", "anyOf": ["engine.*version", "project metadata"]},
+      {"name": "actual asset inspection", "allOf": ["asset", "inspect"]},
+      {"name": "Cocos MCP discovery", "allOf": ["Cocos MCP", "schema|available"]},
+      {"name": "safe Preview lifecycle", "allOf": ["stop", "previous|old", "Preview"]},
+      {"name": "real playable evidence", "anyOf": ["real input", "complete loop", "player-visible"]}
+    ],
+    "forbidden": [
+      {"name": "broad process termination", "patterns": ["kill all", "taskkill /im", "stop all cocos"]},
+      {"name": "invented assets", "patterns": ["assume (the )?asset", "assets? (are|is) available without inspection"]}
+    ]
   },
   {
     "id": "brownfield-preservation",
     "prompt": "Continue an unfamiliar existing game without restructuring it.",
-    "expect": ["inspect", "existing", "preserve", "smallest"],
-    "forbid": ["rewrite", "new architecture by default"]
+    "required": [
+      {"name": "inspect local guidance and project", "allOf": ["inspect", "existing|current"]},
+      {"name": "preserve architecture", "anyOf": ["preserve", "established architecture", "smallest"]},
+      {"name": "bounded change", "anyOf": ["smallest", "thin", "focused"]}
+    ],
+    "forbidden": [
+      {"name": "default rewrite", "patterns": ["rewrite (the )?(whole|entire)", "replace (the )?architecture", "start from scratch"]}
+    ]
+  },
+  {
+    "id": "presentation-authority",
+    "prompt": "Separate overlapping Cocos actors visually without changing combat or board rules.",
+    "required": [
+      {"name": "authoritative state unchanged", "allOf": ["authoritative", "unchanged|not move|remain"]},
+      {"name": "presentation boundary", "anyOf": ["visual root", "presentation-only", "child node"]},
+      {"name": "bounded deterministic offset", "allOf": ["bound|cap|maximum", "deterministic", "offset"]},
+      {"name": "reset lifecycle", "anyOf": ["reset", "respawn", "reuse"]},
+      {"name": "state invariant test", "anyOf": ["snapshot", "occupancy", "hit region", "targeting"]}
+    ],
+    "forbidden": [
+      {"name": "move authoritative node", "patterns": ["move (the )?authoritative (unit )?node", "update logical (position|cell) for visual"]}
+    ]
+  },
+  {
+    "id": "missing-preview-verdict",
+    "prompt": "Tests and build pass, but Cocos Preview could not be run. Give the milestone verdict.",
+    "required": [
+      {"name": "honest non-pass verdict", "anyOf": ["CONCERNS", "FAIL", "MANUAL CHECK NEEDED", "NOT_RUN"]},
+      {"name": "playable evidence limitation", "allOf": ["Preview|playable", "not run|could not|missing|unverified|without fresh|cannot.*without"]},
+      {"name": "path to pass", "anyOf": ["path to \\W*PASS", "to reach \\W*PASS", "before.*\\W*PASS", "requires.*Preview", "run one clean Cocos Preview"]}
+    ],
+    "forbidden": [
+      {"name": "false pass", "patterns": ["verdict.{0,8}PASS", "overall.{0,8}PASS", "release[- ]ready"]}
+    ]
+  },
+  {
+    "id": "release-studio-full",
+    "prompt": "Review a high-risk cross-system game release candidate with studio-full.",
+    "required": [
+      {"name": "bounded specialists", "anyOf": ["at most three", "up to three", "three independent"]},
+      {"name": "primary ownership", "allOf": ["primary", "synthesis|integration|verdict"]},
+      {"name": "evidence gate", "allOf": ["PASS", "CONCERNS", "FAIL"]}
+    ],
+    "forbidden": [
+      {"name": "simulated large studio", "patterns": ["49 agents", "dozens of agents", "one agent per studio role"]}
+    ]
   }
 ]

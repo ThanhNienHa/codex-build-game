@@ -1,4 +1,4 @@
-# Case study: Cocos strategy game from recovered assets
+# Case study: Cocos strategy game with an existing private asset catalog
 
 ## Context
 
@@ -6,13 +6,13 @@
 - **Engine:** Cocos Creator 3.8.8
 - **Stage:** Production, with polish and release gates still open
 - **Process mode:** Lean feature delivery inside an existing production-stage project
-- **Task:** Improve the readability of a dense 100-cell, two-team strategy battle built from a large private set of recovered character assets.
+- **Task:** Improve the readability of a dense 100-cell, two-team strategy battle built from a large private character-asset catalog.
 
-The game, source archive, and character assets are private. This report includes only anonymized workflow behavior and aggregate verification results.
+The game, source archive, and character assets are private and are not redistributed by this repository. This report includes only anonymized workflow behavior and aggregate verification results.
 
 ## Why `$build-game` was used
 
-The project combined deterministic board and combat rules, a large recovered Spine catalog, on-demand content loading, mobile portrait UI, Cocos scene integration, and live battle effects. A readability change had to separate overlapping characters without moving authoritative cells, occupancy, hit regions, or targeting.
+The project combined deterministic board and combat rules, a large existing Spine catalog, on-demand content loading, mobile portrait UI, Cocos scene integration, and live battle effects. A readability change had to separate overlapping characters without moving authoritative cells, occupancy, hit regions, or targeting.
 
 The material risks were changing gameplay while fixing presentation, loading too much recovered content at once, and claiming release readiness from automated tests without observing a real battle.
 
@@ -21,7 +21,7 @@ The material risks were changing gameplay while fixing presentation, loading too
 `$build-game` guided the task to:
 
 1. Confirm Cocos Creator 3.8.8 from project metadata before engine-specific work.
-2. Inspect the existing asset catalog, Spine packages, loaders, scene hierarchy, and runtime references instead of creating replacement characters.
+2. Inspect the existing private asset catalog, Spine packages, loaders, scene hierarchy, and runtime references instead of creating replacement characters.
 3. Keep the improvement presentation-only: the authoritative unit node and board state stayed fixed while secondary silhouettes received small deterministic visual offsets.
 4. Preserve the local player and locked target as stable anchors, cap crowd offsets at 24 pixels, and keep distant actors unchanged.
 5. Add a deterministic test covering anchor stability, offset diversity, and the maximum displacement. The test exposed a rounding edge case before the bound was corrected.
@@ -43,11 +43,11 @@ The project's documented `npm run check` command was rerun on 2026-08-12 and com
 
 The task-recorded playable evidence, not rerun for this documentation update, showed:
 
-- a Browser Preview with 100 cells and 12 recovered heroes;
+- a Browser Preview with 100 cells and 12 existing project heroes;
 - a real battle entered through Preview input;
 - the skill row, projectiles and combat effects, and a respawn notice visible during play;
 - mock gift controls disabled in the current lobby flow;
-- content loaded on demand from a catalog of 118 actor families rather than loading the approximately 688 MiB recovered source set into memory at once.
+- content loaded on demand from a catalog of 118 actor families rather than loading the approximately 688 MiB private source set into memory at once.
 
 A new Preview was not started solely for this case study. The playable evidence above is deliberately labeled historical, while the automated results are fresh.
 

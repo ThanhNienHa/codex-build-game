@@ -14,13 +14,23 @@ This repository is technically prepared for public maintenance, but a newly publ
 
 - [x] Prepare the repository for publication under your own GitHub account.
 - [x] Replace installation URLs and add manifest repository/homepage fields.
-- [ ] Create an initial signed or annotated release and tag.
-- [ ] Enable branch protection and required deterministic CI.
-- [ ] Add a real private security contact.
-- [ ] Demonstrate active maintenance through issues, reviews, releases, or accepted contributions.
-- [ ] Document real users/projects and measurable impact with permission.
+- [x] Create versioned public releases and tags.
+- [x] Enable branch protection and required deterministic CI.
+- [x] Enable GitHub private vulnerability reporting and document the private reporting path.
+- [x] Demonstrate active maintenance through merged pull requests, releases, and public follow-up issues.
+- [x] Publish two anonymized real-use case studies without exposing private projects.
+- [ ] Document independent external users/projects and measurable impact with permission.
 - [ ] Enable the optional Codex PR review only when API credits or a protected API key are available.
 - [ ] Explain why game-development workflows are important to the open-source ecosystem.
 - [ ] Describe how credits would support PR review, compatibility maintenance, evals, and releases.
 
 Do not invent stars, downloads, users, contributors, security needs, or adoption metrics. Apply with accurate evidence and explain the project's role even if it is still small.
+
+## Current public evidence
+
+- Versioned public releases; `v0.2.0` is the current release candidate in this change.
+- Required CI covering repository structure, behavioral eval conformance, public fixtures, and evidence-schema validation.
+- Two anonymized Cocos case studies with fresh automated evidence and bounded verdicts.
+- Public issues derived from observed failure modes rather than speculative feature lists.
+
+This proves active maintenance and real private-project use. It does not prove broad public adoption or independent ecosystem impact.
