@@ -22,6 +22,9 @@ class PackageReleaseTests(unittest.TestCase):
             with mock.patch.object(PACKAGER, "DIST", output):
                 PACKAGER.main()
             archive = next(output.glob("*.zip"))
+            first_digest = archive.read_bytes()
+            PACKAGER.main()
+            self.assertEqual(archive.read_bytes(), first_digest)
             with zipfile.ZipFile(archive) as package:
                 names = package.namelist()
             self.assertIn(".codex-plugin/plugin.json", names)

@@ -5,6 +5,7 @@ import json
 import shutil
 import zipfile
 from pathlib import Path
+from zipfile import ZipInfo
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -34,7 +35,11 @@ def main() -> None:
     ]
     with zipfile.ZipFile(archive, "w", compression=zipfile.ZIP_DEFLATED) as output:
         for path in included:
-            output.write(path, path.relative_to(ROOT).as_posix())
+            info = ZipInfo(path.relative_to(ROOT).as_posix(), date_time=(1980, 1, 1, 0, 0, 0))
+            info.compress_type = zipfile.ZIP_DEFLATED
+            info.create_system = 3
+            info.external_attr = 0o100644 << 16
+            output.writestr(info, path.read_bytes())
 
     digest = hashlib.sha256(archive.read_bytes()).hexdigest()
     checksum.write_text(f"{digest}  {archive.name}\n", encoding="utf-8")
