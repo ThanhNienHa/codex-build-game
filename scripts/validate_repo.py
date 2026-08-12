@@ -145,15 +145,21 @@ def validate_fixtures() -> None:
 
 
 def validate_evidence_example() -> None:
-    sys.path.insert(0, str(SKILL_DIR / "scripts"))
     try:
-        from validate_evidence import validate_manifest
+        import importlib.util
 
-        validate_manifest(json.loads(EVIDENCE_EXAMPLE.read_text(encoding="utf-8")))
+        spec = importlib.util.spec_from_file_location(
+            "validate_evidence", SKILL_DIR / "scripts" / "validate_evidence.py"
+        )
+        if spec is None or spec.loader is None:
+            fail("cannot load evidence validator")
+        module = importlib.util.module_from_spec(spec)
+        source = (SKILL_DIR / "scripts" / "validate_evidence.py").read_text(encoding="utf-8")
+        exec(compile(source, str(SKILL_DIR / "scripts" / "validate_evidence.py"), "exec"), module.__dict__)
+
+        module.validate_manifest(json.loads(EVIDENCE_EXAMPLE.read_text(encoding="utf-8")))
     except (ImportError, ValueError, json.JSONDecodeError) as exc:
         fail(f"invalid evidence example: {exc}")
-    finally:
-        sys.path.pop(0)
 
 
 def validate_case_studies() -> None:
