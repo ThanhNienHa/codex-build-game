@@ -1,0 +1,29 @@
+{
+  "name": "codex-build-game",
+  "version": "0.1.0",
+  "description": "A lightweight studio workflow for planning, building, playtesting, and shipping games with Codex.",
+  "author": {
+    "name": "Thanh Nien Ha",
+    "url": "https://github.com/ThanhNienHa"
+  },
+  "homepage": "https://github.com/ThanhNienHa/codex-build-game#readme",
+  "repository": "https://github.com/ThanhNienHa/codex-build-game",
+  "license": "MIT",
+  "keywords": ["codex", "game-development", "phaser", "cocos", "unity", "skill"],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Codex Build Game",
+    "shortDescription": "Plan, build, playtest, and ship better games.",
+    "longDescription": "A proportional game-development workflow for Codex with stage detection, system design, vertical slices, asset reuse, Cocos MCP guidance, testing, playtesting, and evidence-based quality gates.",
+    "developerName": "Thanh Nien Ha",
+    "category": "Developer Tools",
+    "websiteURL": "https://github.com/ThanhNienHa/codex-build-game",
+    "capabilities": ["Interactive", "Write"],
+    "defaultPrompt": [
+      "Use $build-game to assess this project and propose the smallest playable next step.",
+      "Use $build-game to build a tested vertical slice from this game idea.",
+      "Use $build-game with studio-full to review this release candidate."
+    ],
+    "brandColor": "#7C3AED"
+  }
+}

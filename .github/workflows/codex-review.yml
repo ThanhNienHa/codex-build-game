@@ -1,0 +1,53 @@
+name: Optional Codex PR review
+
+on:
+  workflow_dispatch:
+    inputs:
+      pr_number:
+        description: Pull request number to review
+        required: true
+        type: number
+
+jobs:
+  review:
+    if: github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: refs/pull/${{ inputs.pr_number }}/merge
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Run deterministic validation
+        run: |
+          python scripts/validate_repo.py
+          python scripts/run_evals.py
+
+      - name: Review with Codex
+        id: codex
+        uses: openai/codex-action@v1
+        with:
+          openai-api-key: ${{ secrets.OPENAI_API_KEY }}
+          prompt-file: .github/codex/prompts/review.md
+          sandbox: read-only
+          safety-strategy: drop-sudo
+          output-file: codex-review.md
+
+      - name: Post review
+        if: steps.codex.outputs.final-message != ''
+        uses: actions/github-script@v7
+        env:
+          CODEX_REVIEW: ${{ steps.codex.outputs.final-message }}
+        with:
+          github-token: ${{ github.token }}
+          script: |
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: Number('${{ inputs.pr_number }}'),
+              body: process.env.CODEX_REVIEW,
+            });

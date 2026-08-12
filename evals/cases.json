@@ -1,0 +1,32 @@
+[
+  {
+    "id": "small-bug-solo",
+    "prompt": "Fix a small score rounding bug in an existing Phaser game.",
+    "expect": ["solo", "test", "playable"],
+    "forbid": ["studio-full", "large backlog"]
+  },
+  {
+    "id": "normal-feature-lean",
+    "prompt": "Add a data-driven three-hit combo with feedback and tests.",
+    "expect": ["lean", "acceptance criteria", "deterministic"],
+    "forbid": ["release gate", "large studio"]
+  },
+  {
+    "id": "cocos-vertical-slice",
+    "prompt": "Build the smallest Cocos pet-feeding vertical slice using existing assets.",
+    "expect": ["Cocos MCP", "asset", "Preview", "stop"],
+    "forbid": ["assume assets exist", "kill all"]
+  },
+  {
+    "id": "release-studio-full",
+    "prompt": "Review a cross-system release candidate with studio-full.",
+    "expect": ["three", "parallel", "PASS", "CONCERNS", "FAIL"],
+    "forbid": ["49", "file existence alone"]
+  },
+  {
+    "id": "brownfield-preservation",
+    "prompt": "Continue an unfamiliar existing game without restructuring it.",
+    "expect": ["inspect", "existing", "preserve", "smallest"],
+    "forbid": ["rewrite", "new architecture by default"]
+  }
+]
