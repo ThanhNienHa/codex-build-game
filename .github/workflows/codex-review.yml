@@ -25,7 +25,10 @@ jobs:
       - name: Run deterministic validation
         run: |
           python scripts/validate_repo.py
+          python -m unittest discover -s tests -v
           python scripts/run_evals.py
+          python scripts/run_fixture_checks.py
+          python skills/build-game/scripts/validate_evidence.py skills/build-game/assets/evidence-manifest.example.json
 
       - name: Review with Codex
         id: codex

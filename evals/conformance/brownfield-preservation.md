@@ -1,0 +1,1 @@
+Inspect the existing project, nearby instructions, architecture, assets, and playable path. Preserve the established architecture and implement the smallest focused thin slice that satisfies the request, with proportional tests and a playable check.

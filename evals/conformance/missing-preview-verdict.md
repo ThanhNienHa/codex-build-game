@@ -1,0 +1,1 @@
+Verdict: CONCERNS. Tests and build passed, but the required playable Cocos Preview was not run, so gameplay remains unverified. To reach PASS, start one clean Preview, exercise the affected path with real input, inspect relevant errors, and record the result.

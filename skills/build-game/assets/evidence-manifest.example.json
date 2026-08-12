@@ -1,0 +1,63 @@
+{
+  "schemaVersion": "1.0",
+  "project": {
+    "engine": "cocos-creator",
+    "engineVersion": "3.8.8",
+    "stage": "Vertical Slice",
+    "process": "lean"
+  },
+  "change": {
+    "summary": "Verify one representative playable loop"
+  },
+  "checks": [
+    {
+      "name": "typecheck",
+      "status": "PASS",
+      "freshness": "fresh",
+      "command": "npm run typecheck",
+      "observedAt": "2026-08-12T00:00:00Z",
+      "notes": "Completed without diagnostics"
+    },
+    {
+      "name": "release-build",
+      "status": "NOT_RUN",
+      "freshness": "not-run",
+      "notes": "Outside this vertical-slice scope"
+    }
+  ],
+  "playable": {
+    "required": true,
+    "status": "CONCERNS",
+    "freshness": "fresh",
+    "preview": {
+      "mode": "browser",
+      "previousSession": {
+        "status": "stopped",
+        "identifier": "project preview port or session ID"
+      },
+      "currentSession": {
+        "identifier": "new project preview port or session ID"
+      },
+      "realInputUsed": true,
+      "observedPath": [
+        "boot",
+        "perform the core action",
+        "observe the state and feedback change"
+      ],
+      "consoleRelevantErrors": 0,
+      "stoppedAfter": true
+    },
+    "notes": "Core loop observed; a release build was not part of this check"
+  },
+  "verdict": "CONCERNS",
+  "limitations": [
+    "Release packaging was not run"
+  ],
+  "privacy": {
+    "sanitizedForPublication": true,
+    "containsAbsoluteLocalPaths": false,
+    "containsCredentials": false,
+    "containsPersonalData": false,
+    "containsProprietaryAssets": false
+  }
+}

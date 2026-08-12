@@ -1,4 +1,4 @@
 interface:
-  display_name: 'Build Game'
-  short_description: 'Plan, build, playtest, and ship games'
+  display_name: "Build Game"
+  short_description: "Plan, build, verify, and ship games"
   default_prompt: "Use $build-game to detect this project's stage and deliver the smallest playable, tested improvement with proportional process."

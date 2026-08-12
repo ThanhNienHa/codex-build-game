@@ -1,0 +1,1 @@
+Use up to three independent risk-matched specialists for design, technical, and QA evidence. The primary agent owns synthesis, integration, and the final verdict. Evaluate the release as PASS, CONCERNS, or FAIL from current automated, playable, performance, and packaging evidence.

@@ -13,6 +13,8 @@ An open-source Codex plugin and skill for planning, building, testing, playtesti
 - Existing-asset discovery and reuse before generating replacements
 - Cocos MCP and clean Cocos Preview workflow
 - Evidence-based `PASS`, `CONCERNS`, and `FAIL` quality gates
+- Behavioral response evals and public Phaser/Cocos fixtures
+- Machine-readable verification evidence and Cocos Preview reports
 
 The skill supports engine-neutral design and architecture, with focused guidance for Phaser, Cocos Creator, and migration to Unity. It intentionally does not simulate a large studio for routine work.
 
@@ -64,6 +66,8 @@ Use $build-game with studio-full to review this Cocos release candidate for desi
 .codex-plugin/plugin.json   Codex plugin metadata
 skills/build-game/          Installable Codex skill
 scripts/validate_repo.py    Dependency-free repository checks
+evals/                      Behavioral response contracts and grader fixtures
+fixtures/                   Synthetic Phaser and Cocos maintenance tasks
 .github/                    CI and contribution templates
 ```
 
@@ -75,6 +79,19 @@ scripts/validate_repo.py    Dependency-free repository checks
 4. Reuse suitable project assets before creating new ones.
 5. Keep gameplay rules testable outside engine scenes.
 6. Keep Codex responses and progress updates concise.
+
+## Validate a contribution
+
+```powershell
+python scripts/validate_repo.py
+python -m unittest discover -s tests -v
+python scripts/run_evals.py
+python scripts/run_fixture_checks.py
+python skills/build-game/scripts/validate_evidence.py skills/build-game/assets/evidence-manifest.example.json
+python scripts/package_release.py
+```
+
+`run_evals.py` checks deterministic conformance examples. For substantial skill changes, also grade fresh independent Codex responses as described in [evals/README.md](evals/README.md).
 
 ## Contributing
 
@@ -88,7 +105,7 @@ See [docs/CODEX-FOR-OSS.md](docs/CODEX-FOR-OSS.md) for the project's public-main
 
 ## Case studies
 
-- [Cocos parity rebuild: evidence over optimistic smoke tests](docs/case-studies/2026-08-cocos-parity-rebuild.md)
+- [Cocos behavior rebuild: evidence over optimistic smoke tests](docs/case-studies/2026-08-cocos-parity-rebuild.md)
 - [Cocos strategy game: presentation safety and real Preview evidence](docs/case-studies/2026-08-cocos-strategy-game.md)
 
 ## Project status

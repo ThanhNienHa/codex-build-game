@@ -1,0 +1,1 @@
+Keep authoritative cells, logical position, occupancy, hit regions, and targeting unchanged. Apply a presentation-only offset below a visual root or child node. Make the offset deterministic and capped by a tested maximum, snapshot authoritative state before and after, and reset the visual offset on reuse, death, or respawn.

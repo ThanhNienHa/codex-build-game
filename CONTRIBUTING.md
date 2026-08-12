@@ -10,7 +10,8 @@ Thanks for improving Codex Build Game.
 4. Add or update validation when introducing a structural rule.
 5. Run `python scripts/validate_repo.py`.
 6. Run `python scripts/run_evals.py`.
-7. Forward-test substantial skill changes with a realistic prompt and report the observed result.
+7. Run `python scripts/run_fixture_checks.py` when fixtures or gameplay guidance change.
+8. Forward-test substantial skill changes with a realistic prompt, grade the fresh response when a matching eval exists, and report the observed result.
 
 ## Pull request expectations
 
@@ -19,5 +20,6 @@ Thanks for improving Codex Build Game.
 - No unverified claims about engine APIs or MCP operations.
 - No copied material without compatible licensing and attribution.
 - Concise documentation with concrete acceptance criteria.
+- Behavioral evals must grade complete response text; corpus keyword presence is not behavioral evidence.
 
 By contributing, you agree that your contribution is licensed under the repository's MIT License.

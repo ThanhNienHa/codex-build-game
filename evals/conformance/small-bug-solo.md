@@ -1,0 +1,1 @@
+Use solo mode. Inspect the existing scoring rule and its tests, make the smallest focused correction, run the targeted test and project checks, then perform a short browser smoke or other documented playable check. No broader design work is needed.

@@ -14,7 +14,7 @@ description: Plan, design, build, debug, test, playtest, and ship maintainable g
 5. When content could help, inspect existing assets before designing or generating replacements. Read `references/asset-discovery.md`.
 6. For uncertain fun, control feel, art direction, or technical feasibility, build the smallest disposable prototype. Before committing production scope, validate a representative vertical slice using `references/vertical-slice.md`.
 7. Implement thin end-to-end changes. Keep rules testable outside scenes, tune values through validated data, and preserve requirement -> decision -> code -> test evidence using `references/story-delivery.md`.
-8. Run proportional automated checks, then verify the affected playable path. For significant milestones, evaluate `PASS`, `CONCERNS`, or `FAIL` using `references/quality-gates.md`.
+8. Run proportional automated checks, then verify the affected playable path. For significant milestones, evaluate `PASS`, `CONCERNS`, or `FAIL` using `references/quality-gates.md`; use `references/evidence.md` when evidence freshness, Cocos Preview, or release claims must be recorded.
 9. Report the outcome, evidence, remaining risks, and the smallest useful next step. Keep the response concise.
 
 ## Load the relevant reference
@@ -34,6 +34,7 @@ description: Plan, design, build, debug, test, playtest, and ship maintainable g
 - Content schemas, economy balance, or localization: `references/content-design.md`
 - Test scope and completion checks: `references/testing.md`
 - Cocos project inspection, MCP, and preview workflow: `references/cocos-mcp.md`
+- Machine-readable evidence and Cocos Preview reports: `references/evidence.md`
 
 For engine ports, read repository `docs/migrating-engines.md` when it exists.
 
