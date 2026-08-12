@@ -28,9 +28,14 @@ Do not invent stars, downloads, users, contributors, security needs, or adoption
 
 ## Current public evidence
 
-- Versioned public releases; `v0.2.0` is the current release candidate in this change.
+- Versioned public releases, reproducible archives, checksums, and clean-install validation.
 - Required CI covering repository structure, behavioral eval conformance, public fixtures, and evidence-schema validation.
 - Two anonymized Cocos case studies with fresh automated evidence and bounded verdicts.
 - Public issues derived from observed failure modes rather than speculative feature lists.
+- An explicit game/MCP threat model and compatibility claims tied to official OpenAI documentation or public evidence.
+
+Game development is an important open-source workflow because changes cross deterministic rules, engine serialization, licensed assets, interactive verification, performance, packaging, and platform boundaries. General coding checks can pass while the player-visible game remains broken, unsafe to release, or legally undistributable; this project makes those missing gates explicit and reusable.
+
+Credits would support trusted Codex PR review, forward-testing across supported engines and Codex surfaces, compatibility maintenance, release evidence automation, and public fixture/case-study expansion. They would not be used to claim adoption that has not been independently demonstrated.
 
 This proves active maintenance and real private-project use. It does not prove broad public adoption or independent ecosystem impact.

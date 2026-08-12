@@ -17,3 +17,7 @@ jobs:
       - run: python scripts/run_evals.py
       - run: python scripts/run_fixture_checks.py
       - run: python skills/build-game/scripts/validate_evidence.py skills/build-game/assets/evidence-manifest.example.json
+      - run: python skills/build-game/scripts/evaluate_release.py skills/build-game/assets/release-readiness.example.json
+      - run: python scripts/validate_compatibility.py
+      - run: python scripts/package_release.py
+      - run: python scripts/smoke_install.py dist/codex-build-game-v$(python -c "import json; print(json.load(open('.codex-plugin/plugin.json'))['version'])").zip

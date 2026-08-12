@@ -11,6 +11,7 @@ SKILL_DIR = ROOT / "skills" / "build-game"
 SKILL_MD = SKILL_DIR / "SKILL.md"
 PLUGIN_JSON = ROOT / ".codex-plugin" / "plugin.json"
 EVIDENCE_EXAMPLE = SKILL_DIR / "assets" / "evidence-manifest.example.json"
+RELEASE_EXAMPLE = SKILL_DIR / "assets" / "release-readiness.example.json"
 
 
 def fail(message: str) -> None:
@@ -66,6 +67,11 @@ def validate_skill() -> None:
         SKILL_DIR / "scripts" / "validate_evidence.py",
         SKILL_DIR / "assets" / "evidence-manifest.example.json",
         SKILL_DIR / "assets" / "cocos-preview-report.template.md",
+        SKILL_DIR / "assets" / "release-readiness.example.json",
+        SKILL_DIR / "scripts" / "evaluate_release.py",
+        SKILL_DIR / "references" / "release-readiness.md",
+        SKILL_DIR / "references" / "security.md",
+        SKILL_DIR / "references" / "compatibility.md",
     ):
         if not required.is_file():
             fail(f"missing skill resource: {required.relative_to(ROOT)}")
@@ -162,6 +168,53 @@ def validate_evidence_example() -> None:
         fail(f"invalid evidence example: {exc}")
 
 
+def validate_release_example() -> None:
+    try:
+        module: dict[str, object] = {"__name__": "evaluate_release"}
+        path = SKILL_DIR / "scripts" / "evaluate_release.py"
+        exec(compile(path.read_text(encoding="utf-8"), str(path), "exec"), module)
+        validator = module["validate_release"]
+        validator(json.loads(RELEASE_EXAMPLE.read_text(encoding="utf-8")))
+    except (KeyError, TypeError, ValueError, json.JSONDecodeError) as exc:
+        fail(f"invalid release example: {exc}")
+
+
+def validate_compatibility_matrix() -> None:
+    try:
+        path = ROOT / "scripts" / "validate_compatibility.py"
+        module: dict[str, object] = {
+            "__name__": "validate_compatibility",
+            "__file__": str(path),
+        }
+        exec(compile(path.read_text(encoding="utf-8"), str(path), "exec"), module)
+        validator = module["validate_matrix"]
+        matrix = ROOT / "compatibility" / "matrix.json"
+        validator(json.loads(matrix.read_text(encoding="utf-8")))
+    except (OSError, KeyError, TypeError, ValueError, json.JSONDecodeError) as exc:
+        fail(f"invalid compatibility matrix: {exc}")
+
+    if not (ROOT / "docs" / "THREAT-MODEL.md").is_file():
+        fail("missing threat model")
+
+
+def validate_ci_contract() -> None:
+    ci = (ROOT / ".github" / "workflows" / "ci.yml").read_text(encoding="utf-8")
+    required_commands = (
+        "python scripts/validate_repo.py",
+        "python -m unittest discover -s tests -v",
+        "python scripts/run_evals.py",
+        "python scripts/run_fixture_checks.py",
+        "python skills/build-game/scripts/validate_evidence.py",
+        "python skills/build-game/scripts/evaluate_release.py",
+        "python scripts/validate_compatibility.py",
+        "python scripts/package_release.py",
+        "python scripts/smoke_install.py",
+    )
+    for command in required_commands:
+        if command not in ci:
+            fail(f"CI missing required command: {command}")
+
+
 def validate_case_studies() -> None:
     case_dir = ROOT / "docs" / "case-studies"
     required_sections = [
@@ -188,6 +241,9 @@ def main() -> None:
     validate_evals()
     validate_fixtures()
     validate_evidence_example()
+    validate_release_example()
+    validate_compatibility_matrix()
+    validate_ci_contract()
     validate_case_studies()
     print("Repository validation passed.")
 

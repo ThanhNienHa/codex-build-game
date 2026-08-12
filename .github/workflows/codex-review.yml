@@ -29,6 +29,8 @@ jobs:
           python scripts/run_evals.py
           python scripts/run_fixture_checks.py
           python skills/build-game/scripts/validate_evidence.py skills/build-game/assets/evidence-manifest.example.json
+          python skills/build-game/scripts/evaluate_release.py skills/build-game/assets/release-readiness.example.json
+          python scripts/validate_compatibility.py
 
       - name: Review with Codex
         id: codex

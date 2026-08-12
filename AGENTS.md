@@ -16,4 +16,4 @@ Maintain an engine-aware but engine-neutral Codex game-development skill. Keep t
 
 ## Verification
 
-Run `python scripts/validate_repo.py` and validate the plugin manifest and skill before finishing. Forward-test substantial workflow changes against a realistic game task without leaking the expected answer.
+Run `python scripts/validate_repo.py`, unit tests, behavioral evals, fixture checks, evidence/release validators, compatibility validation, clean-install smoke, and the plugin/skill validators in proportion to the change. Forward-test substantial workflow changes against a realistic game task without leaking the expected answer.

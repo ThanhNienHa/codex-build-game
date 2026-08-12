@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.3.0 - 2026-08-12
+
+- Added a machine-readable release-readiness schema with computed verdict enforcement.
+- Added a threat model and `$build-game` security guidance for MCP, assets, dependencies, external input, builds, and publishing.
+- Added an evidence-backed compatibility matrix for Codex surfaces and supported game-engine workflows.
+- Added clean release-archive installation validation and security/release behavioral evals.
+- Forward-tested release verdicts, hostile metadata handling, and official Codex surface compatibility; corrected wording-sensitive grader rules from the observed responses.
+
 ## 0.2.0 - 2026-08-12
 
 - Replaced incomplete gameplay, state, event, production, UI, content, and testing pointers with self-contained guidance.

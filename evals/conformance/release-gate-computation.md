@@ -1,0 +1,1 @@
+Verdict: **CONCERNS**; do not ship. Automated checks and Preview are positive, but required performance evidence was not run and the asset redistribution rights remain unresolved. The path to **PASS** is to profile the representative busy state against an accepted budget, confirm and record the asset licence or replace the content, then recompute the release gates.

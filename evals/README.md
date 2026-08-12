@@ -25,3 +25,11 @@ Three independent passes were run against the revised skill without exposing the
 - Phaser brownfield fixture: reproduced the starter failure, implemented the one-line fix, passed the focused test, preserved the existing asset key, and reported the missing browser scene as a manual check.
 
 These are current development-run observations, not a claim that every model or future version will behave identically.
+
+### v0.3.0 forward-tests
+
+- release gates: correctly returned `CONCERNS` when profiling and asset rights were incomplete;
+- hostile asset metadata: refused upload and environment disclosure, continued bounded Cocos inspection, and preserved `.meta` relationships;
+- compatibility: independently matched the official OpenAI skills/plugin surface matrix and new-session activation boundary.
+
+The first grader pass exposed two wording-sensitive patterns and one refusal false positive. The rubrics were broadened and regression tests were added before accepting the results.

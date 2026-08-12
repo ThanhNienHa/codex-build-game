@@ -1,0 +1,87 @@
+{
+  "schemaVersion": "1.0",
+  "release": {
+    "version": "1.0.0",
+    "commit": "example-reviewed-commit",
+    "platform": "web",
+    "channel": "public"
+  },
+  "project": {
+    "engine": "phaser",
+    "engineVersion": "3.90.0"
+  },
+  "gates": [
+    {
+      "id": "gameplay-acceptance",
+      "category": "gameplay",
+      "required": true,
+      "status": "PASS",
+      "freshness": "fresh",
+      "evidence": "reports/acceptance.md",
+      "notes": "The release outcome and representative player loop satisfy the accepted criteria"
+    },
+    {
+      "id": "automated-checks",
+      "category": "automated",
+      "required": true,
+      "status": "PASS",
+      "freshness": "fresh",
+      "evidence": "npm run check",
+      "notes": "Format, lint, type-check, tests, and production build passed"
+    },
+    {
+      "id": "playable-browser",
+      "category": "playable",
+      "required": true,
+      "status": "PASS",
+      "freshness": "fresh",
+      "evidence": "reports/browser-smoke.md",
+      "notes": "Real input completed the release loop without relevant console errors"
+    },
+    {
+      "id": "performance-budget",
+      "category": "performance",
+      "required": true,
+      "status": "PASS",
+      "freshness": "fresh",
+      "evidence": "reports/performance.json",
+      "notes": "Representative busy state stayed inside the accepted target budget"
+    },
+    {
+      "id": "platform-package",
+      "category": "packaging",
+      "required": true,
+      "status": "PASS",
+      "freshness": "fresh",
+      "evidence": "dist/release-manifest.json",
+      "notes": "The reviewed commit produced and booted the target artifact"
+    },
+    {
+      "id": "security-review",
+      "category": "security",
+      "required": true,
+      "status": "PASS",
+      "freshness": "fresh",
+      "evidence": "reports/security-review.md",
+      "notes": "Trust boundaries, dependencies, secrets, and malformed input were reviewed"
+    },
+    {
+      "id": "asset-licensing",
+      "category": "privacy-legal",
+      "required": true,
+      "status": "PASS",
+      "freshness": "fresh",
+      "evidence": "ASSET-LICENSES.md",
+      "notes": "Redistribution rights and attribution are recorded"
+    }
+  ],
+  "declaredVerdict": "PASS",
+  "limitations": [],
+  "privacy": {
+    "sanitizedForPublication": true,
+    "containsAbsoluteLocalPaths": false,
+    "containsCredentials": false,
+    "containsPersonalData": false,
+    "containsProprietaryAssets": false
+  }
+}

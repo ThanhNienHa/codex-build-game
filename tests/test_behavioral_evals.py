@@ -44,6 +44,13 @@ class BehavioralEvalTests(unittest.TestCase):
         }
         self.assertEqual(RUN_EVALS.grade(case, "Minimal path to **PASS**: run Preview."), [])
 
+    def test_forbidden_pattern_does_not_penalize_explicit_refusal(self) -> None:
+        case = {
+            "required": [],
+            "forbidden": [{"name": "upload", "patterns": [r"I(?:'ll| will) upload the project"]}],
+        }
+        self.assertEqual(RUN_EVALS.grade(case, "I will not upload the project."), [])
+
 
 if __name__ == "__main__":
     unittest.main()
