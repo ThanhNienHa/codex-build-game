@@ -86,6 +86,10 @@ Every pull request runs deterministic repository, plugin, and skill validation. 
 
 See [docs/CODEX-FOR-OSS.md](docs/CODEX-FOR-OSS.md) for the project's public-maintainer readiness checklist and honest application guidance.
 
+## Case studies
+
+- [Cocos parity rebuild: evidence over optimistic smoke tests](docs/case-studies/2026-08-cocos-parity-rebuild.md)
+
 ## Project status
 
 This repository is an early-stage open-source project. Validation and forward-test scenarios are included, but adoption and real-world maintainer impact must be earned and documented over time. See [ROADMAP.md](ROADMAP.md).
