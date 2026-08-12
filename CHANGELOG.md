@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.1.2 - 2026-08-12
+
+- Added an anonymized case study from an active Cocos strategy-game task using recovered assets.
+- Recorded fresh type-check, 119-test simulation, and 864-match balance evidence.
+- Documented a presentation-only dense-combat improvement and honest remaining Preview/release gates.
+
 ## 0.1.1 - 2026-08-12
 
 - Added the first anonymized real-world case study from an active Cocos Creator rebuild.

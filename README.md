@@ -89,6 +89,7 @@ See [docs/CODEX-FOR-OSS.md](docs/CODEX-FOR-OSS.md) for the project's public-main
 ## Case studies
 
 - [Cocos parity rebuild: evidence over optimistic smoke tests](docs/case-studies/2026-08-cocos-parity-rebuild.md)
+- [Cocos strategy game: presentation safety and real Preview evidence](docs/case-studies/2026-08-cocos-strategy-game.md)
 
 ## Project status
 
