@@ -19,9 +19,11 @@
 
 ## 0.3 - Maintainer workflows
 
-- Structured release-readiness output schema
+- [x] Structured release-readiness schema with computed verdicts
 - Automated changelog and compatibility checks
 - [x] Reproducible plugin packaging with SHA-256 release artifacts
-- Security threat model for engine/MCP workflows
+- [x] Security threat model for engine/MCP workflows
+- [x] Codex surface and engine-evidence compatibility matrix
+- [x] Clean archive installation smoke test
 
 Priorities may change based on real maintainer feedback. The project will not claim broad adoption without public evidence.

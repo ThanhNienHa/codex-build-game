@@ -1,6 +1,6 @@
 {
   "name": "codex-build-game",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "A lightweight studio workflow for planning, building, playtesting, and shipping games with Codex.",
   "author": {
     "name": "Thanh Nien Ha",
@@ -14,7 +14,7 @@
   "interface": {
     "displayName": "Codex Build Game",
     "shortDescription": "Plan, build, playtest, and ship better games.",
-    "longDescription": "A proportional game-development workflow for Codex with stage detection, system design, vertical slices, authorized asset reuse, Cocos MCP guidance, behavioral evals, playable verification, and evidence-based quality gates.",
+    "longDescription": "A proportional game-development workflow for Codex with stage detection, system design, authorized asset reuse, Cocos MCP safety, behavioral evals, playable verification, and computed release gates.",
     "developerName": "Thanh Nien Ha",
     "category": "Developer Tools",
     "websiteURL": "https://github.com/ThanhNienHa/codex-build-game",

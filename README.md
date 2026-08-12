@@ -15,6 +15,8 @@ An open-source Codex plugin and skill for planning, building, testing, playtesti
 - Evidence-based `PASS`, `CONCERNS`, and `FAIL` quality gates
 - Behavioral response evals and public Phaser/Cocos fixtures
 - Machine-readable verification evidence and Cocos Preview reports
+- Computed release-readiness gates and a game/MCP workflow threat model
+- Codex surface and engine evidence compatibility matrix
 
 The skill supports engine-neutral design and architecture, with focused guidance for Phaser, Cocos Creator, and migration to Unity. It intentionally does not simulate a large studio for routine work.
 
@@ -68,6 +70,7 @@ skills/build-game/          Installable Codex skill
 scripts/validate_repo.py    Dependency-free repository checks
 evals/                      Behavioral response contracts and grader fixtures
 fixtures/                   Synthetic Phaser and Cocos maintenance tasks
+compatibility/              Codex-surface and engine-evidence support matrix
 .github/                    CI and contribution templates
 ```
 
@@ -88,10 +91,15 @@ python -m unittest discover -s tests -v
 python scripts/run_evals.py
 python scripts/run_fixture_checks.py
 python skills/build-game/scripts/validate_evidence.py skills/build-game/assets/evidence-manifest.example.json
+python skills/build-game/scripts/evaluate_release.py skills/build-game/assets/release-readiness.example.json
+python scripts/validate_compatibility.py
 python scripts/package_release.py
+python scripts/smoke_install.py dist/codex-build-game-v0.3.0.zip
 ```
 
 `run_evals.py` checks deterministic conformance examples. For substantial skill changes, also grade fresh independent Codex responses as described in [evals/README.md](evals/README.md).
+
+See [docs/THREAT-MODEL.md](docs/THREAT-MODEL.md) for security boundaries and [compatibility/matrix.json](compatibility/matrix.json) for evidence-backed support levels. Product-surface claims follow the current [OpenAI skills documentation](https://learn.chatgpt.com/docs/build-skills) and [plugin documentation](https://learn.chatgpt.com/docs/plugins).
 
 ## Contributing
 

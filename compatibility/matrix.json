@@ -1,0 +1,52 @@
+{
+  "schemaVersion": "1.0",
+  "verifiedAt": "2026-08-12",
+  "officialDocs": {
+    "skills": "https://learn.chatgpt.com/docs/build-skills",
+    "plugins": "https://learn.chatgpt.com/docs/plugins"
+  },
+  "codexSurfaces": [
+    {
+      "surface": "chatgpt-desktop-codex",
+      "standaloneSkill": "supported",
+      "plugin": "supported",
+      "activation": "new-chat-after-plugin-install"
+    },
+    {
+      "surface": "codex-cli",
+      "standaloneSkill": "supported",
+      "plugin": "supported",
+      "activation": "new-session-after-plugin-install"
+    },
+    {
+      "surface": "codex-ide-extension",
+      "standaloneSkill": "supported",
+      "plugin": "not-supported",
+      "activation": "restart-if-updated-skill-is-not-detected"
+    }
+  ],
+  "engines": [
+    {
+      "engine": "phaser",
+      "versionEvidence": ["3.90.0"],
+      "support": "fixture-tested",
+      "evidence": ["fixtures/phaser-brownfield"]
+    },
+    {
+      "engine": "cocos-creator",
+      "versionEvidence": ["3.8.8"],
+      "support": "case-study",
+      "evidence": [
+        "fixtures/cocos-presentation-safety",
+        "docs/case-studies/2026-08-cocos-parity-rebuild.md",
+        "docs/case-studies/2026-08-cocos-strategy-game.md"
+      ]
+    },
+    {
+      "engine": "unity",
+      "versionEvidence": [],
+      "support": "guidance-only",
+      "evidence": []
+    }
+  ]
+}

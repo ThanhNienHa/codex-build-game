@@ -5,3 +5,5 @@ Do not report sensitive vulnerabilities in public issues. Use the repository's *
 Never include API keys, creator cookies, access tokens, proprietary assets, personal viewer data, or production project files in reports. Use minimal synthetic reproductions.
 
 The skill provides workflow guidance and does not bundle an MCP server. Engine or MCP vulnerabilities should also be reported to their respective maintainers.
+
+See [docs/THREAT-MODEL.md](docs/THREAT-MODEL.md) for the protected assets, trust boundaries, representative threats, and release controls considered by this project.
